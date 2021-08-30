@@ -1,19 +1,19 @@
 <template>
-  <header class="header">
-    <input type="text" />
-    <a class="header-menu" @click="onBackClick"></a>
-    <a class="header-create" @click="onBackClick"></a>
-  </header>
+  <div>
+      <h1>{{item.title}}</h1>
+      <h3>{{item.subTitle}}</h3>
+  </div>
 </template>
 
 <script>
-import index from '../index.vue'
 export default {
-  components: { index },
-  name: 'index',
+  name: 'memory',
+  props: {
+    memory: Object
+  },
   data () {
     return {
-      msg: 'Item'
+      item: this.memory
     }
   },
   methods: {

@@ -1,17 +1,15 @@
 <template>
-  <header class="header">
-    <Photo size="small"></Photo>
+  <header>
+    Something
     <a class="header-menu"></a>
     <a class="header-create" @click="onCreateClick"></a>
   </header>
 </template>
 
 <script>
-import Photo from '@/components/Photo'
-
 export default {
-  name: 'Header',
-  components: { Photo },
+  name: 'navigator',
+  // components: { Photo },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
@@ -26,12 +24,13 @@ export default {
 </script>
 
 <style scoped>
-.header {
+header {
   position: fixed;
   top: env(safe-area-inset-top);
   left: 0;
   right: 0;
   background-color: aliceblue;
+  text-align: center;
 }
 
 .header-menu {
