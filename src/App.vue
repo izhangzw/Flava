@@ -13,6 +13,5 @@ export default {
 <style lang="scss" scoped>
 .container {
   height: 100%;
-  background: yellowgreen;
 }
 </style>
