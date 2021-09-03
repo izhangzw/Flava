@@ -41,6 +41,14 @@ design pattern
 yarn add sass-resources-loader -D
 ```
 
+### 字体图标不显示, 控制台有警告   
+> Failed to decode downloaded font: <URL>   
+> OTS parsing error: invalid sfntVersion: 1008813135
+
+是由于找不到字体文件
+1. 把字体文件放到static目录下，确保webpack加载到
+2. 修改字体文件url绝对地址 `$fa-font-path: "~/static/fonts" !default;`
+
 ## Homebrew
 > Version value must be a string; got a NilClass () (TypeError)
 ```
