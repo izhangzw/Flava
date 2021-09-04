@@ -17,6 +17,6 @@ export default {
 .view-overview {
   height: 100%;
   width: 100%;
-  margin-top: 44px;
+  margin-top: calc( 45px + env(safe-area-inset-top) );
 }
 </style>
