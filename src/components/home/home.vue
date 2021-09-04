@@ -1,6 +1,16 @@
 <template>
   <div class="view-home">
-    <navigator></navigator>
+    <navigator
+    title="Gerard Way"
+    left-icon-class="fa-bars"
+    :left-icon-action="onMenuButtonClick"
+    :show-right-navigation="true"
+    right-icon-class="fa-plus"
+    :right-icon-action="onCreateButtonClick"
+    :show-third-navigation="true"
+    third-icon-class="fa-search"
+    :third-icon-action="onSearchButtonClick"
+    ></navigator>
     <overview></overview>
   </div>
 </template>
@@ -11,10 +21,18 @@ import overview from './overview/overview'
 
 export default {
   name: 'home',
-  components: { navigator, overview }
-  // data () {
-  //  return {}
-  // }
+  components: { navigator, overview },
+  methods: {
+    onMenuButtonClick () {
+      console.log('点击左侧菜单按钮')
+    },
+    onCreateButtonClick () {
+      console.log('点击创建按钮')
+    },
+    onSearchButtonClick () {
+      console.log('点击查询按钮')
+    }
+  }
 }
 </script>
 
