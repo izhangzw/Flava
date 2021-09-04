@@ -2,3 +2,10 @@
   font-size: ($size * 10) + px;
   font-size: $size + rem;
 }
+// @function safe-top($v: 0) {
+//   @return calc( $v + #{$safe-area-inset-top} )
+// }
+
+// @mixin st($v) {
+//   margin-top: safe-top($v);
+// }

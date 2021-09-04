@@ -1,3 +1,9 @@
 @import "base/all";
 @import "components/all";
 @import "font-icon/font-awesome";
+
+section.bodyer {
+  height: 100%;
+  width: 100%;
+  margin-top: calc( #{$boder-margin-top} + #{$safe-area-inset-top} );
+}
