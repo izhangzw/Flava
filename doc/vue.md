@@ -17,6 +17,8 @@ yarn add sass-loader@7.3.1 -D
 - [ ] 全局样式应该在哪引入 
 - [x] 全局引入 scss, 在components里面可以直接使用全局变量
 - [ ] 如何实现图片背景带箭头
+- [ ] 如何自定义eslint规则
+- [ ] mixin safe-area
 
 
 数据代理  
