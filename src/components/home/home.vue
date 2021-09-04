@@ -11,7 +11,9 @@
     third-icon-class="fa-search"
     :third-icon-action="onSearchButtonClick"
     ></navigator>
-    <overview></overview>
+    <section class="bodyer">
+      <overview></overview>
+    </section>
   </div>
 </template>
 
@@ -28,6 +30,7 @@ export default {
     },
     onCreateButtonClick () {
       console.log('点击创建按钮')
+      this.$router.push('record')
     },
     onSearchButtonClick () {
       console.log('点击查询按钮')
@@ -35,7 +38,3 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>

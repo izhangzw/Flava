@@ -1,7 +1,5 @@
 <template>
-  <section class="view-overview">
-    <memories></memories>
-  </section>
+  <memories></memories>
 </template>
 
 <script>
@@ -11,12 +9,3 @@ export default {
   components: { memories }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
-.view-overview {
-  height: 100%;
-  width: 100%;
-  margin-top: calc( 45px + env(safe-area-inset-top) );
-}
-</style>
