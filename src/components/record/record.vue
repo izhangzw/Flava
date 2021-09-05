@@ -18,10 +18,13 @@
 
 <script>
 import navigator from '@/components/navigator/navigator'
+import recordDatetime from './record-datetime/record-datetime'
+import recordEditable from './record-editable/record-editable'
+import recordFooter from './record-footer/record-footer'
 
 export default {
   name: 'record',
-  components: { navigator },
+  components: { navigator, recordDatetime, recordEditable, recordFooter },
   methods: {
     onCancelButtonClick () {
       console.log('点击取消按钮')
