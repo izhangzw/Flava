@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div class="memories">
     <memory
     v-for="(memory, index) in memories"
     :key="index"
     :memory="memory"></memory>
+    <div class="timeline"></div>
   </div>
 </template>
 
@@ -16,15 +17,26 @@ export default {
   data () {
     return {
       memories: [{
+        id: 0,
+        title: 'Greenmonster Inc.',
+        contents: '#666 Gsan-dong, Greenmonster',
+        coverType: 'text'
+      }, {
         id: 1,
-        type: 'text', // video location
-        title: 'Title is Gerard Way',
-        subTitle: 'This is a text item'
+        title: 'Greenmonster Inc.',
+        contents: '#666 Gsan-dong, Greenmonster',
+        coverType: 'place'
       }, {
         id: 2,
-        type: 'text 2', // video location
-        title: 'Title is Gerard Way 2',
-        subTitle: 'This is a text item 2'
+        title: 'Greenmonster Inc.',
+        contents: '#666 Gsan-dong, Greenmonster',
+        coverType: 'photo',
+        images: [1]
+      }, {
+        id: 3,
+        title: 'Jay Chou.',
+        contents: 'Still Fantasy....',
+        coverType: 'music'
       }]
     }
   }
@@ -33,4 +45,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+
+.timeline {
+  width: 4px;
+  height: auto;
+  display: block;
+  background-color: $timelineColor;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+}
 </style>
