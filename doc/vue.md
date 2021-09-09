@@ -21,6 +21,7 @@ yarn add sass-loader@7.3.1 -D
 - [x] mixin safe-area
 - [ ] 1像素边框mixin
 - [ ] 优化全局css加载
+- [ ] 开发模式下不检测格式，通过eslint . --fix快速 format
 
 # Something Important
 数据代理  
