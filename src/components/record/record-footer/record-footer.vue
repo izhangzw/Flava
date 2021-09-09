@@ -14,7 +14,7 @@ export default {
 <style lang="scss" scoped>
 .record-footer-wrapper {
   position: fixed;
-  bottom: $safe-area-inset-bottom;
+  bottom: safe-area(bottom);
   left: 0;
   right: 0;
 }

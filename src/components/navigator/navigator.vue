@@ -60,7 +60,7 @@ export default {
 <style lang="scss" scoped>
 header {
   position: fixed;
-  padding-top: env(safe-area-inset-top);
+  padding-top: safe-area();
   left: 0;
   right: 0;
   top: 0;

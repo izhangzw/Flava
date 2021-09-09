@@ -1,14 +1,18 @@
 <template>
-  <img class="photo" :class="size" src="../assets/logo.png">
+  <img class="headshot" :class="size" :src="src">
 </template>
 
 <script>
 export default {
-  name: 'Photo',
+  name: 'headshot',
   props: {
     size: {
       type: String,
       default: 'small' // small normal large
+    },
+    src: {
+      type: String,
+      default: './static/images/default-head.jpg'
     }
   },
   data () {
@@ -18,18 +22,21 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  .small {
+<style lang="scss" scoped>
+.headshot {
+  border-radius: 50%;
+
+  &.small {
     width: 2rem;
     height: 2rem;
   }
-  .normal {
+  &.normal {
     width: 5rem;
     height: 5rem;
   }
-  .large {
+  &.large {
     width: 10rem;
     height: 10rem;
   }
+}
 </style>
