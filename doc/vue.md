@@ -13,19 +13,22 @@ yarn add sass-loader@7.3.1 -D
 
 # 我还想解决什么问题
 - [x] .vue 中直接写scss
-- [ ] 如何按需加载路由
+- [x] 如何按需加载路由
 - [ ] 全局样式应该在哪引入 
 - [x] 全局引入 scss, 在components里面可以直接使用全局变量
 - [ ] 如何实现图片背景带箭头
 - [ ] 如何自定义eslint规则
-- [ ] mixin safe-area
+- [x] mixin safe-area
+- [ ] 1像素边框mixin
+- [ ] 优化全局css加载
 
-
+# Something Important
 数据代理  
 `Object.defineProperty`  
 数据劫持  
 design pattern  
-  
+数据检测的原理   
+
 # 坑
 ## node-sass
 ### node / node-sass / scss-loader 版本匹配问题
