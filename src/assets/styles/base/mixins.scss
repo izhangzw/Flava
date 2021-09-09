@@ -2,10 +2,16 @@
   font-size: ($size * 10) + px;
   font-size: $size + rem;
 }
-// @function safe-top($v: 0) {
-//   @return calc( $v + #{$safe-area-inset-top} )
-// }
-
-// @mixin st($v) {
-//   margin-top: safe-top($v);
-// }
+@function safe-area($heading: top, $v: 0) {
+  $safe-area: $safe-area-inset-top;
+  @if $heading == "top" {
+    $safe-area: $safe-area-inset-top;
+  } @else if $heading == "right" {
+    $safe-area: $safe-area-inset-right;
+  } @else if $heading == "bottom" {
+    $safe-area: $safe-area-inset-bottom;
+  } @else if $heading == "left" {
+    $safe-area: $safe-area-inset-left;
+  }
+  @return calc( #{$v}px + #{$safe-area} );
+}
