@@ -26,7 +26,8 @@ export default {
     @include flexbox;
     @include flex-direction(row);
     padding: 10rem 1rem 0;
-    background-color: red;
+    background: url('~/css/img/default_slide_images_02.jpg') center center no-repeat;
+    background-size: cover;
     &--head {
       text-align: center;
       margin-right: 1rem;

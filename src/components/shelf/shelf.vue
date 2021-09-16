@@ -1,22 +1,20 @@
 <template>
   <div class="shelf">
     <shelf-user></shelf-user>
-    <shelf-filter-types></shelf-filter-types>
-    <shelf-filter-tags></shelf-filter-tags>
+    <shelf-filter title="Sort by Types" typer="types"></shelf-filter>
+    <shelf-filter title="Sort by Tags" typer="tags"></shelf-filter>
     <shelf-footer></shelf-footer>
   </div>
 </template>
 <script>
 import shelfUser from './shelf-user/shelf-user'
-import shelfFilterTypes from './shelf-filter-types/shelf-filter-types'
-import shelfFilterTags from './shelf-filter-tags/shelf-filter-tags'
+import shelfFilter from './shelf-filter/shelf-filter'
 import shelfFooter from './shelf-footer/shelf-footer'
 export default {
   name: 'shelf',
   components: {
     shelfUser,
-    shelfFilterTypes,
-    shelfFilterTags,
+    shelfFilter,
     shelfFooter
   }
 }

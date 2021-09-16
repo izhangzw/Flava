@@ -1,7 +1,7 @@
 <template>
   <div class="record-footer-medias">
     <p class="record-footer-medias__types">
-      <a><i class="fa fa-picture-o"></i></a>
+      <a><i class="fa fa-camera"></i></a>
       <a><i class="fa fa-video-camera"></i></a>
       <a><i class="fa fa-microphone"></i></a>
       <a><i class="fa fa-map-marker"></i></a>
