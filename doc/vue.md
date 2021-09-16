@@ -13,19 +13,18 @@ yarn add sass-loader@7.3.1 -D
 
 # 我还想解决什么问题
 - [x] .vue 中直接写scss
+  - [x] 全局样式应该在哪引入 - App.vue
+  - [x] 全局引入 scss, 在components里面可以直接使用全局变量 - sass-resource-loader
 - [x] 如何按需加载路由
-- [ ] 全局样式应该在哪引入 
-- [x] 全局引入 scss, 在components里面可以直接使用全局变量
-- [ ] 如何实现图片背景带箭头
-- [ ] 如何自定义eslint规则
 - [x] mixin safe-area
-- [ ] 1像素边框mixin
-- [ ] 优化全局css加载
-- [ ] 开发模式下不检测格式，通过eslint . --fix快速 format
+- [ ] eslint . 
+  - [x] 开发模式下不检测格式
+  - [x] 如何自定义eslint规则
+  - [ ] --fix快速 format
 - [x] ExtractTextPlugin 怎么用，可以解决 css中引用图片的问题么
-- extract-text-webpack-plugin 该插件的主要是为了抽离css样式, 防止将样式打包在js中引起页面样式加载错乱的现象
 - [ ] webpack 执行顺序
-- [ ] common styles 加载了好多遍
+- [ ] 如何实现图片背景带箭头
+- [ ] 1像素边框mixin
 
 # Something Important
 数据代理  
@@ -35,8 +34,8 @@ design pattern
 数据检测的原理   
 
 # 坑
-## node-sass
-### node / node-sass / scss-loader 版本匹配问题
+## node-sass   
+### node / node-sass / scss-loader 版本匹配问题   
 > Module build failed: TypeError: this.getOptions is not a function  
 
 [参考 node-sass Git](https://github.com/sass/node-sass)  
@@ -51,6 +50,47 @@ design pattern
 yarn add sass-resources-loader -D
 ```
 
+虽然在App.vue中引入了所有css, 但定义的变量/mixin还是找不到  
+```
+Module build failed: 
+  background-color: $timelineColor;
+                   ^
+      Undefined variable: "$timelineColor".
+      in x/memories/memories.vue (line 53, column 21)
+```
+所以要借助 `sass-resources-loader` 来配置全局 scss 文件路径   
+在 /build/utils.js 文件下找到下面指定的这行代码：
+```
+exports.cssLoaders = function (options) {
+  ...
+  return {
+    ...
+    scss: generateLoaders('sass'), /* 找到这行代码 */
+    ...
+  }
+}
+```
+替换成下面所示的内容
+```
+exports.cssLoaders = function (options) {
+  ...
+  return {
+    ...
+    scss: generateLoaders('sass').concat(
+      {
+        loader: 'sass-resources-loader',
+        options: {
+          resources: [
+            path.resolve(__dirname, '../src/assets/styles/base/variable.scss'),
+            path.resolve(__dirname, '../src/assets/styles/mixins/all.scss')
+          ]
+        }
+      }
+    ),
+    ...
+  }
+}
+```
 ### 字体图标不显示, 控制台有警告   
 > Failed to decode downloaded font: <URL>   
 > OTS parsing error: invalid sfntVersion: 1008813135
@@ -75,3 +115,11 @@ yarn add sass-resources-loader -D
 brew update
 brew -v
 ```
+
+## Webpack3+
+
+### extract-text-webpack-plugin 有什么用
+> 抽文本插件  
+
+该插件的主要是为了抽*.vue中的`css`到单独的文件中  
+防止将`css`和`js`在一起  
