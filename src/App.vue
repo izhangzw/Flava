@@ -12,7 +12,9 @@ export default {
   components: { shelf }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
+@import '@/assets/styles/app.scss';
+
 .container {
   height: 100%;
 }
