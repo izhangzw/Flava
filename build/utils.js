@@ -66,7 +66,10 @@ exports.cssLoaders = function (options) {
         loader: 'sass-resources-loader',
         options: {
           /* 后面的文件路径就是你所需要引入的全局scss文件路径 */
-          resources: path.resolve(__dirname, '../src/assets/styles/app.scss')
+          resources: [
+            path.resolve(__dirname, '../src/assets/base/variable.scss'),
+            path.resolve(__dirname, '../src/assets/mixins/all.scss')
+          ]
         }
       }
     ),
