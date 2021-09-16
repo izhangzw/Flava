@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import '@/assets/styles/base/variable.scss'
 export default {
   name: 'crumb',
   computed: {
