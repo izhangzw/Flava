@@ -22,6 +22,10 @@ yarn add sass-loader@7.3.1 -D
 - [ ] 1像素边框mixin
 - [ ] 优化全局css加载
 - [ ] 开发模式下不检测格式，通过eslint . --fix快速 format
+- [x] ExtractTextPlugin 怎么用，可以解决 css中引用图片的问题么
+- extract-text-webpack-plugin 该插件的主要是为了抽离css样式, 防止将样式打包在js中引起页面样式加载错乱的现象
+- [ ] webpack 执行顺序
+- [ ] common styles 加载了好多遍
 
 # Something Important
 数据代理  
@@ -54,6 +58,15 @@ yarn add sass-resources-loader -D
 是由于找不到字体文件
 1. 把字体文件放到static目录下，确保webpack加载到
 2. 修改字体文件url绝对地址 `$fa-font-path: "~/static/fonts" !default;`
+
+
+### scss内引用的背景图片找不到   
+> This relative module was not found:   
+
+由于webpack在编译过程中会检测css中图片的是否可用，所以会报错。   
+如果图片放在 `static/images/` 中，会直接生成到 `dist/static/images/` 下，那么图片可以这么引用   
+`background-image: url('~/static/images/xxx.png')`
+
 
 ## Homebrew
 > Version value must be a string; got a NilClass () (TypeError)
