@@ -18,7 +18,8 @@ exports.cssLoaders = function (options) {
   const cssLoader = {
     loader: 'css-loader',
     options: {
-      sourceMap: options.sourceMap
+      sourceMap: options.sourceMap,
+      // minimize: false
     }
   }
 
@@ -46,8 +47,8 @@ exports.cssLoaders = function (options) {
     // (which is the case during production build)
     if (options.extract) {
       return ExtractTextPlugin.extract({
-        use: loaders,
-        fallback: 'vue-style-loader'
+        use: loaders,// 指需要什么样的loader去编译文件
+        fallback: 'vue-style-loader',// 编译后用什么loader来提取css文件
       })
     } else {
       return ['vue-style-loader'].concat(loaders)
@@ -58,8 +59,8 @@ exports.cssLoaders = function (options) {
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
-    less: generateLoaders('less'),
-    sass: generateLoaders('sass', { indentedSyntax: true }),
+    // less: generateLoaders('less'),
+    // sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass').concat(
       {
         loader: 'sass-resources-loader',
@@ -69,8 +70,8 @@ exports.cssLoaders = function (options) {
         }
       }
     ),
-    stylus: generateLoaders('stylus'),
-    styl: generateLoaders('stylus')
+    // stylus: generateLoaders('stylus'),
+    // styl: generateLoaders('stylus')
   }
 }
 
