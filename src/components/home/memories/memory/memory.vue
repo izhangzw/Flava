@@ -70,8 +70,7 @@ export default {
       padding-right: 1rem;
       padding-top: .5rem;
       padding-bottom: .5rem;
-      border-bottom: 1px solid #f0f0f0;
-
+      @include border1px(bottom, solid, $memoryItemBorderColor);
       @include flexbox;
       @include flex-direction(column);
       > p {
