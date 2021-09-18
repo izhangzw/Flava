@@ -1,13 +1,14 @@
 <template>
   <div class="view-record">
     <navigator
-    title="Record New / Edit"
     left-icon-class="fa-close"
     :left-icon-action="onCancelButtonClick"
     :show-right-navigation="true"
     right-icon-class="fa-check"
     :right-icon-action="onSubmitButtonClick"
-    ></navigator>
+    >
+      <input class="record-title" type="text" v-model="title" />
+    </navigator>
     <section class="bodyer">
       <record-datetime></record-datetime>
       <record-editable></record-editable>
@@ -44,6 +45,17 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
+.view-record {
+  height: 80%;
+  background: red;
+  .record-title {
+    background-color: $recordInputBackgroundColor;
+    @include font-size(1.6);
+    text-align: center;
+    border-radius: 3px;
+    line-height: 30px;
+    width: 100%;
+  }
+}
 </style>

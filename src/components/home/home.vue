@@ -1,7 +1,6 @@
 <template>
   <div class="view-home">
     <navigator
-    title="Gerard Way"
     left-icon-class="fa-bars"
     :left-icon-action="onMenuButtonClick"
     :show-right-navigation="true"
@@ -10,7 +9,9 @@
     :show-third-navigation="true"
     third-icon-class="fa-search"
     :third-icon-action="onSearchButtonClick"
-    ></navigator>
+    >
+      <headshot size="small"></headshot>
+    </navigator>
     <section class="bodyer">
       <overview></overview>
     </section>
@@ -20,10 +21,11 @@
 <script>
 import navigator from '@/components/navigator/navigator'
 import overview from './overview/overview'
+import headshot from '@/components/headshot/headshot'
 
 export default {
   name: 'home',
-  components: { navigator, overview },
+  components: { navigator, overview, headshot },
   methods: {
     onMenuButtonClick () {
       console.log('点击左侧菜单按钮')

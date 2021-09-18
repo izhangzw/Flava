@@ -1,6 +1,13 @@
 <template>
-  <header>
-    {{navTitle}}
+  <header class="navigator">
+    <div class="navigator-inner">
+      <template v-if="navTitle">
+        {{navTitle}}
+      </template>
+      <template v-else>
+        <slot></slot>
+      </template>
+    </div>
     <a class="header-left-button" @click="leftIconAction">
       <i class="fa fa-2x" :class="leftIconClass"></i>
     </a>
@@ -48,7 +55,6 @@ export default {
   // components: { Photo },
   methods: {
     onCreateClick () {
-      console.log()
       this.rightIconAction()
       // this.$router.push('/item')
       // this.$emit(this.rightIconAction)
@@ -58,34 +64,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$navigatorHeight: 44px;
 header {
   position: fixed;
   padding-top: safe-area();
   left: 0;
   right: 0;
   top: 0;
-  background-color: aliceblue;
   text-align: center;
-  height: 44px;
-  line-height: 44px;
-  box-shadow: 0px -1px 2px gray;
+  height: $navigatorHeight;
+  line-height: $navigatorHeight;
+  box-shadow: inset 0px -1px 20px 0px #ececec;
+  .navigator-inner {
+    width: calc( 100% - 100px );
+    margin: 0 auto;
+    > img {
+      vertical-align: middle;
+    }
+  }
   > a {
     position: absolute;
-    width: 44px;
+    width: $navigatorHeight;
     height: 100%;
+    top: 0;
   }
   .header {
     &-left-button {
       left: 0;
-      background-color: aqua;
     }
     &-right-button {
       right: 0;
-      background-color: yellowgreen;
     }
     &-third-button {
-      right: 44px;
-      background-color: gainsboro;
+      right: $navigatorHeight;
     }
   }
 }
