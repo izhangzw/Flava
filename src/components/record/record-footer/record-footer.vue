@@ -1,5 +1,5 @@
 <template>
-  <div class="record-footer-wrapper">
+  <div class="record-footer">
     <record-footer-medias></record-footer-medias>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.record-footer-wrapper {
+.record-footer {
   position: fixed;
   bottom: safe-area(bottom);
   left: 0;

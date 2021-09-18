@@ -11,7 +11,7 @@
     </navigator>
     <section class="bodyer">
       <record-datetime></record-datetime>
-      <record-editable></record-editable>
+      <record-editable v-model="contents" @updateContents="updatedContents"></record-editable>
       <record-footer></record-footer>
     </section>
   </div>
@@ -26,15 +26,25 @@ import recordFooter from './record-footer/record-footer'
 export default {
   name: 'record',
   components: { navigator, recordDatetime, recordEditable, recordFooter },
+  data() {
+    return {
+      title: 'deufault title',
+      contents: 'default parent contents'
+    }
+  },
   methods: {
     onCancelButtonClick () {
       console.log('点击取消按钮')
       this.$router.go(-1)
     },
     onSubmitButtonClick () {
-      console.log('点击提交按钮')
+      console.log('点击提交按钮', this.contents)
       this.$router.go(-1)
-    }
+    },
+    updatedContents(v) {
+      console.log(v)
+      this.contents = v
+    },
   },
   created () {
     console.log('created  init')

@@ -1,5 +1,5 @@
 <template>
-  <div class="record-datetime-wrapper">
+  <div class="record-datetime">
     <a class="record-date">九 5, 2021</a>
     <a class="record-time">17:28 PM</a>
   </div>
@@ -12,7 +12,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 $datetime-picker-border-color: rgba(225, 225, 225, 1);
-.record-datetime-wrapper {
+.record-datetime {
   padding: 1rem;
   > a {
     border: 1px solid;
