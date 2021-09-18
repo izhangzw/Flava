@@ -27,8 +27,8 @@ export default {
   border-radius: 50%;
 
   &.small {
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
   &.normal {
     width: 5rem;
