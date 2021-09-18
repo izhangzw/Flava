@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss" scoped>
 $shelfBackgroundColor: #000;
-$shelfIndex: 100;
+$shelfIndex: -1;
 .shelf {
   position: fixed;
   left: 0;
