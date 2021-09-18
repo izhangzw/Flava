@@ -1,21 +1,26 @@
-$videoColor: blue;
-$photoColor: purple;
-$placeColor: red;
-$musicColor: green;
-$voiceColor: yellow;
-$weblinkColor: #fff;
+$textColor: #ffffff;
+$placeColor: #ad4d3c;
+$weblinkColor: #5eb4f2;
+$photoColor: #5b70a1;
+$videoColor: #489bac;
+$voiceColor: #f4ad43;
+$musicColor: #5189e9;
+$bookColor: #91b450;
+$archiveColor: #9666bd;
 
 $titleColor: #000;
 $descColor: #dfdfdf;
-$recordFooterMediasBgColor: rgb(210, 210, 210);
-$timelineColor: rgb(210, 210, 210);
+$recordFooterMediasBgColor: #d2d2d2;
+$timelineColor: #d2d2d2;
+$globalViewBackgroundColor: #fff;
 
 // Shelf
 $shelfFontColor: #fff;
 $shelfFontColorReverse: #323232;
+$shelfFilterActivedColor: #fff;
 
-$safe-area-inset-top: env(safe-area-inset-top);
-$safe-area-inset-bottom: env(safe-area-inset-bottom);
-$safe-area-inset-left: env(safe-area-inset-left);
-$safe-area-inset-right: env(safe-area-inset-right);
-$boder-margin-top: 45px;
+// Overview
+$memoryItemBorderColor: #f6f6f6;
+
+// Record
+$recordInputBackgroundColor: #e3e4e6;
