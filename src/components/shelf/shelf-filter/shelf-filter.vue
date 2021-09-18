@@ -2,19 +2,20 @@
   <div class="shelf-filter">
     <h3>{{title}}</h3>
     <div class="filters">
-      <a class="filter filter-text"><i class="fa fa-file"></i></a>
-      <a class="filter filter-photo"><i class="fa fa-camera"></i></a>
-      <a class="filter filter-video"><i class="fa fa-video-camera"></i></a>
-      <a class="filter filter-voice"><i class="fa fa-microphone"></i></a>
-      <a class="filter filter-music"><i class="fa fa-music"></i></a>
-      <a class="filter filter-book"><i class="fa fa-book"></i></a>
-      <a class="filter filter-weblink"><i class="fa fa-link"></i></a>
-      <a class="filter filter-place"><i class="fa fa-map-marker"></i></a>
+      <a
+      v-for="(filter, index) in filters" :key="index"
+      class="filter"
+      :type="filter.name"
+      :class="{active: filter.isActived}"
+      @click="toggleFilter(index)"
+      ><i class="fa" :class="filter.icon"></i></a>
     </div>
   </div>
 </template>
 
 <script>
+import {MEMORY_ICONS_HASH, MEMORY_TYPES} from '@/constants'
+
 export default {
   name: 'shelf-filter',
   props: {
@@ -22,22 +23,33 @@ export default {
     typer: String,
   },
   computed: {
-    filters: {
-      get() {
-        return this[this.typer]
-      }
+    // TODO 优化 - filters 这个计算属性被没有数据代理
+    filters() {
+      return MEMORY_TYPES.map(memoryType => {
+        return {
+          isActived: true,
+          icon: MEMORY_ICONS_HASH[memoryType],
+          name: memoryType
+        }
+      })
     }
   },
-  data () {
+  watch: {
+  },
+  data() {
     return {
-      types: [1, 2, 3],
       tags: [10, 100, 1000]
     }
   },
   methods: {
-    toggleFilter (e) {
-      console.log(e.target)
+    toggleFilter (i) {
+      this.filters[i].isActived = !this.filters[i].isActived
+      // TODO 优化 - filters 这个计算属性被没有数据代理
+      this.$forceUpdate()
+      // this.$emit("xxxx","子向父组件传值");//自定义事件  传递值“子向父组件传值”
     }
+  },
+  mounted() {
   }
 }
 </script>
@@ -55,7 +67,7 @@ export default {
     padding: 1rem .5rem;
     .filter {
       border-radius: 50%;
-      border: 1px solid $shelfFontColor;
+      border: 1px solid $shelfFontColorReverse;
       @include font-size(3);
       width: 5rem;
       height: 5rem;
@@ -63,9 +75,39 @@ export default {
       text-align: center;
       margin: 0 .5rem 1rem;
       &.active {
+        color: $shelfFilterActivedColor;
         border-color: transparent;
       }
     }
+  }
+}
+.filter.active {
+  &[type=text] {
+    background-color: $textColor;
+  }
+  &[type=place] {
+    background-color: $placeColor;
+  }
+  &[type=weblink] {
+    background-color: $weblinkColor;
+  }
+  &[type=photo] {
+    background-color: $photoColor;
+  }
+  &[type=video] {
+    background-color: $videoColor;
+  }
+  &[type=voice] {
+    background-color: $voiceColor;
+  }
+  &[type=music] {
+    background-color: $musicColor;
+  }
+  &[type=book] {
+    background-color: $bookColor;
+  }
+  &[type=archive] {
+    background-color: $archiveColor;
   }
 }
 </style>
