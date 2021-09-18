@@ -34,14 +34,22 @@ export default {
     }
     &--info {
       @include flex(1);
+      @include flexbox;
+      @include flex-direction(column);
       > p {
         color: $shelfFontColor;
       }
       &--name {
-        @include font-size(2)
+        @include font-size(2);
+        @include flex(1);
+        @include flexbox;
+        @include flex-direction(column);
+        @include justify-content(flex-end);
       }
       &--date {
         @include font-size(1);
+        @include flex(1);
+        padding-top: .2rem;
       }
     }
   }
