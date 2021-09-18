@@ -8,7 +8,10 @@ yarn dev
 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
 
 
-开始画页面
+静态页面
+基本功能
+- text 保存 / 展示 / 修改
+
 
 # Knowledges
 

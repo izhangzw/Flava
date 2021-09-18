@@ -18,13 +18,13 @@ yarn add sass-loader@7.3.1 -D
 - [x] 如何按需加载路由
 - [x] mixin safe-area
 - [ ] eslint . 
-  - [x] 开发模式下不检测格式
+  - [ ] 开发模式下不检测格式
   - [x] 如何自定义eslint规则
   - [ ] --fix快速 format
 - [x] ExtractTextPlugin 怎么用，可以解决 css中引用图片的问题么
 - [ ] webpack 执行顺序
 - [ ] 如何实现图片背景带箭头
-- [ ] 1像素边框mixin
+- [x] 1像素边框mixin
 
 # Something Important
 数据代理  
