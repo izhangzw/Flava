@@ -25,11 +25,10 @@ export default {
 <style lang="scss" scoped>
 .record-editable {
   height: 100%;
+  padding: 1rem;
   > textarea {
     width: 100%;
     height: 100%;
-    height: 100%;
-    padding: 1rem;
     @include font-size(1.6);
   }
 }
