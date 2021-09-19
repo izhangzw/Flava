@@ -10,36 +10,17 @@
 
 <script>
 import memory from '@/components/home/memories/memory/memory'
+import {mapState} from 'vuex'
 
 export default {
   name: 'memories',
   components: { memory },
-  data () {
-    return {
-      memories: [{
-        id: 0,
-        title: 'Greenmonster Inc.',
-        contents: '#666 Gsan-dong, Greenmonster',
-        coverType: 'text'
-      }, {
-        id: 1,
-        title: 'Greenmonster Inc.',
-        contents: '#666 Gsan-dong, Greenmonster',
-        coverType: 'place'
-      }, {
-        id: 2,
-        title: 'Greenmonster Inc.',
-        contents: '#666 Gsan-dong, Greenmonster',
-        coverType: 'photo',
-        images: [1]
-      }, {
-        id: 3,
-        title: 'Jay Chou.',
-        contents: 'Still Fantasy....',
-        coverType: 'music'
-      }]
-    }
-  }
+  computed: {
+    ...mapState('record', ['memories'])
+  },
+  created() {
+    this.$store.dispatch('record/fetchRecords')
+  },
 }
 </script>
 
