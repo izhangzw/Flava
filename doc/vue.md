@@ -25,6 +25,7 @@ yarn add sass-loader@7.3.1 -D
 - [ ] webpack 执行顺序
 - [ ] 如何实现图片背景带箭头
 - [x] 1像素边框mixin
+- [ ] mock data
 
 # Something Important
 数据代理  
