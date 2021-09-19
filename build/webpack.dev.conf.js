@@ -34,6 +34,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     host: HOST || config.dev.host,
     port: PORT || config.dev.port,
     open: config.dev.autoOpenBrowser,
+    // 当出现编译器错误或警告时，在浏览器中显示全屏覆盖
     overlay: config.dev.errorOverlay
       ? { warnings: false, errors: true }
       : false,
