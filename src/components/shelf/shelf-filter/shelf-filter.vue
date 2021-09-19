@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {MEMORY_ICONS_HASH, MEMORY_TYPES} from '@/constants'
+import {MEMORY} from '@/constants/index'
 
 export default {
   name: 'shelf-filter',
@@ -25,10 +25,10 @@ export default {
   computed: {
     // TODO 优化 - filters 这个计算属性被没有数据代理
     filters() {
-      return MEMORY_TYPES.map(memoryType => {
+      return MEMORY.TYPES.map(memoryType => {
         return {
           isActived: true,
-          icon: MEMORY_ICONS_HASH[memoryType],
+          icon: MEMORY.ICONS_HASH[memoryType],
           name: memoryType
         }
       })
