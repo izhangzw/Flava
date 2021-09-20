@@ -16,10 +16,10 @@ export default {
   name: 'memories',
   components: { memory },
   computed: {
-    ...mapState('record', ['memories'])
+    ...mapState('memory', ['memories'])
   },
   created() {
-    this.$store.dispatch('record/fetchRecords')
+    this.$store.dispatch('memory/queryRecords')
   },
 }
 </script>

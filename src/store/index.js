@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import record from './record'
+import memory from './memory'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    record
+    memory
   }
 })
