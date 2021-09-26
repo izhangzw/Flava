@@ -1,68 +1,90 @@
+class Memory {
+  id = +new Date()
+  title = 'Default Tile'
+  contents = 'Default contents'
+  coverType = 'text'
+  created = +new Date()
+  updated = +new Date()
+  iconTags = []
+  textTags= []
+  latitude= 0
+  longitude= 0
+  images= []
+  constructor(data) {
+    Object.assign(this, data)
+  }
+}
 export default {
   namespaced: true,
   state: {
-    memories: [],
-    memory: {
-      id: '0',
-      title: '',
-      contents: '',
-      coverType: 'text',
-      created: +new Date(),
-      updated: +new Date(),
-      iconTags: [],
-      textTags: [],
-      latitude: 0,
-      longitude: 0,
-      images: []
-    }
+    memories: [{
+      id: 0,
+      title: 'Greenmonster Inc.',
+      contents: '#666 Gsan-dong, Greenmonster',
+      coverType: 'text'
+    }, {
+      id: 1,
+      title: 'Greenmonster Inc.',
+      contents: '#666 Gsan-dong, Greenmonster',
+      coverType: 'place'
+    }, {
+      id: 2,
+      title: 'Greenmonster Inc.',
+      contents: '#666 Gsan-dong, Greenmonster',
+      coverType: 'photo',
+      images: [1]
+    }, {
+      id: 3,
+      title: 'Jay Chou.',
+      contents: 'Still Fantasy....',
+      coverType: 'music'
+    }],
+    memoryId: ''
   },
   actions: {
     saveRecord(ctx, data) {
-      const {state} = ctx
-      ctx.commit('saveRecord', Object.assign(state.memory, data))
+      // eslint-disable-next-line no-new
+      ctx.commit('SAVE_RECORD', new Memory(data))
     },
-    // deleteRecord(ctx, id) {},
+    deleteRecord(ctx, id) {
+      const index = ctx.memories.findIndex(v => v.id === id)
+      if (index !== -1) {
+        ctx.commit('DELETE_RECORD', index)
+      } else {
+        alert(`没找到${id}的数据`)
+      }
+    },
     queryRecords(ctx, filter = {}) {
       // TODO fetch mock
-      ctx.commit('queryRecords', [{
-        id: 0,
-        title: 'Greenmonster Inc.',
-        contents: '#666 Gsan-dong, Greenmonster',
-        coverType: 'text'
-      }, {
-        id: 1,
-        title: 'Greenmonster Inc.',
-        contents: '#666 Gsan-dong, Greenmonster',
-        coverType: 'place'
-      }, {
-        id: 2,
-        title: 'Greenmonster Inc.',
-        contents: '#666 Gsan-dong, Greenmonster',
-        coverType: 'photo',
-        images: [1]
-      }, {
-        id: 3,
-        title: 'Jay Chou.',
-        contents: 'Still Fantasy....',
-        coverType: 'music'
-      }])
+      ctx.commit('QUERY_RECORDS', ctx.state.memories)
     },
     findRecord(ctx, id) {
-      ctx.commit('findRecord', id)
+      ctx.commit('FIND_RECORD', id)
     },
   },
   mutations: {
-    saveRecord(state, data) {
-      state.memories.push(data)
+    SAVE_RECORD(state, data) {
+      console.log(data)
+      state.memories.unshift(data)
     },
-    // deleteRecord(state, id) {},
-    queryRecords(state, datas) {
+    DELETE_RECORD(state, index) {
+      state.memories.splice(index, 1)
+    },
+    QUERY_RECORDS(state, datas) {
       state.memories = datas
     },
-    findRecord(state, id) {
-      state.memory = state.memories.filter(data => data.id === id)[0]
+    FIND_RECORD(state, id) {
+      state.memoryId = id
     }
   },
   getters: {
+    memory(state) {
+      const index = state.memories.findIndex(data => data.id === state.memoryId)
+      if (index !== -1) {
+        return state.memories[index]
+      } else {
+        // call server
+      }
+    }
   }
 }

@@ -7,11 +7,11 @@
     right-icon-class="fa-check"
     :right-icon-action="onSubmitButtonClick"
     >
-      <input class="record-title" type="text" v-model="title" />
+      <input class="record-title" type="text" v-model="memory.title" />
     </navigator>
     <section class="bodyer">
       <record-datetime></record-datetime>
-      <record-editable v-model="contents" @updateContents="updatedContents"></record-editable>
+      <record-editable v-model="memory.contents" @updateContents="updatedContents"></record-editable>
       <record-footer></record-footer>
     </section>
   </div>
@@ -28,8 +28,10 @@ export default {
   components: { navigator, recordDatetime, recordEditable, recordFooter },
   data() {
     return {
-      title: 'deufault title',
-      contents: 'default parent contents'
+      memory: {
+        title: 'deufault title',
+        contents: 'default parent contents'
+      }
     }
   },
   methods: {
@@ -38,19 +40,17 @@ export default {
       this.$router.go(-1)
     },
     onSubmitButtonClick () {
-      console.log('点击提交按钮', this.contents)
-      this.$router.go(-1)
+      this.$store.dispatch('memory/saveRecord', this.memory)
+      this.$router.back()
     },
     updatedContents(v) {
-      console.log(v)
-      this.contents = v
+      this.memory.contents = v
     },
   },
   created () {
-    console.log('created  init')
+    console.log('record created')
   },
   mounted () {
-    console.log('mounted call everytime')
   }
 }
 </script>
