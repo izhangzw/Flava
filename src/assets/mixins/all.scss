@@ -47,3 +47,12 @@ $safe-area-inset-right: env(safe-area-inset-right);
     }
   }
 }
+
+@mixin ellipsis() {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: keep-all;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}

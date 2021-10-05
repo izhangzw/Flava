@@ -68,11 +68,13 @@ export default {
     &-infor {
       @include flex(1);
       padding-right: 1rem;
-      padding-top: .5rem;
-      padding-bottom: .5rem;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      padding-left: 1rem;
       @include border1px(bottom, solid, $memoryItemBorderColor);
       @include flexbox;
       @include flex-direction(column);
+      width: 0;
       > p {
         @include flex(1);
         text-align: right;
@@ -80,13 +82,16 @@ export default {
       &-captain {
         @include font-size(1.6);
         color: $titleColor;
+        padding-bottom: .5rem;
         @include flexbox;
         @include flex-direction(column);
         @include justify-content(flex-end);
+        @include ellipsis;
       }
       &-desc {
         @include font-size(1.4);
         color: $descColor;
+        @include ellipsis;
       }
     }
     &-media {
