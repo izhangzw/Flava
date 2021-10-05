@@ -26,6 +26,7 @@ yarn add sass-loader@7.3.1 -D
 - [ ] 如何实现图片背景带箭头
 - [x] 1像素边框mixin
 - [ ] mock data
+- [ ] 封装 fetch.js <-- axios
 
 # Something Important
 数据代理  

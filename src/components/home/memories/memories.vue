@@ -19,7 +19,7 @@ export default {
     ...mapState('memory', ['memories'])
   },
   created() {
-    // this.$store.dispatch('memory/queryRecords')
+    this.$store.dispatch('memory/queryRecords')
   },
   mounted() {
   }

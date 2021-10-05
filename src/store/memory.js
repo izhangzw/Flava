@@ -1,3 +1,5 @@
+import fetch from '@/services/fetch'
+
 class Memory {
   id = +new Date()
   title = 'Default Tile'
@@ -20,7 +22,7 @@ export default {
     memories: [{
       id: 0,
       title: 'Greenmonster Inc.',
-      contents: '#666 Gsan-dong, Greenmonster',
+      contents: '#666 Gsan-dong, Greenmonster #666 Gsan-dong, Greenmonster',
       coverType: 'text'
     }, {
       id: 1,
@@ -42,7 +44,7 @@ export default {
     memoryId: ''
   },
   actions: {
-    saveRecord(ctx, data) {
+    async saveRecord(ctx, data) {
       // eslint-disable-next-line no-new
       ctx.commit('SAVE_RECORD', new Memory(data))
     },
@@ -54,9 +56,9 @@ export default {
         alert(`没找到${id}的数据`)
       }
     },
-    queryRecords(ctx, filter = {}) {
-      // TODO fetch mock
-      ctx.commit('QUERY_RECORDS', ctx.state.memories)
+    async queryRecords(ctx, filter = {}) {
+      const memories = await fetch.get('memories')
+      ctx.commit('QUERY_RECORDS', memories)
     },
     findRecord(ctx, id) {
       ctx.commit('FIND_RECORD', id)
