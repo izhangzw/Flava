@@ -1,15 +1,15 @@
 <template>
   <div class="memories">
     <memory
-    v-for="(memory, index) in memories"
-    :key="index"
+    v-for="memory in memories"
+    :key="memory.id"
     :memory="memory"></memory>
     <div class="timeline"></div>
   </div>
 </template>
 
 <script>
-import memory from '@/components/home/memories/memory/memory'
+import memory from './memory/memory'
 import {mapState} from 'vuex'
 
 export default {
@@ -19,7 +19,7 @@ export default {
     ...mapState('memory', ['memories'])
   },
   created() {
-    this.$store.dispatch('memory/queryRecords')
+    // this.$store.dispatch('memory/queryRecords')
   },
   mounted() {
   }

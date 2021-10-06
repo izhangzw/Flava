@@ -1,5 +1,5 @@
 <template>
-  <div class="memory" :class="item.coverType">
+  <div class="memory" :class="item.coverType" @click="onDetailClick(item.id)">
     <crumb></crumb>
     <div class="memory-content" v-if="item.coverType === 'photo'">
       <div class="memory-content-media">
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import crumb from '@/components/home/memories/memory/crumb/crumb'
+import crumb from './crumb/crumb'
 export default {
   name: 'memory',
   components: { crumb },
@@ -39,6 +39,9 @@ export default {
     }
   },
   methods: {
+    onDetailClick(id) {
+      this.$router.push(`/record/${id}`)
+    }
   }
 }
 </script>
