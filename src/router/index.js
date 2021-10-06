@@ -14,6 +14,12 @@ export default new Router({
       path: '/record',
       name: 'record',
       component: () => import('@/components/record/record')
+    },
+    {
+      path: '/record/:id',
+      name: 'detail',
+      component: () => import('@/components/detail/detail'),
+      // beforeEnter: (to, from, next) => {}
     }
   ]
 })

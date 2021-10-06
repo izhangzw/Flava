@@ -20,28 +20,28 @@ export default {
   namespaced: true,
   state: {
     memories: [{
-      id: 0,
+      id: '100',
       title: 'Greenmonster Inc.',
       contents: '#666 Gsan-dong, Greenmonster #666 Gsan-dong, Greenmonster',
       coverType: 'text'
     }, {
-      id: 1,
+      id: '101',
       title: 'Greenmonster Inc.',
       contents: '#666 Gsan-dong, Greenmonster',
       coverType: 'place'
     }, {
-      id: 2,
+      id: '102',
       title: 'Greenmonster Inc.',
       contents: '#666 Gsan-dong, Greenmonster',
       coverType: 'photo',
       images: [1]
     }, {
-      id: 3,
+      id: '103',
       title: 'Jay Chou.',
       contents: 'Still Fantasy....',
       coverType: 'music'
     }],
-    memoryId: ''
+    memory: null
   },
   actions: {
     async saveRecord(ctx, data) {
@@ -61,12 +61,11 @@ export default {
       ctx.commit('QUERY_RECORDS', memories)
     },
     findRecord(ctx, id) {
-      ctx.commit('FIND_RECORD', id)
+      ctx.commit('FIND_RECORD', ctx.state.memories.filter(memory => memory.id === id)[0])
     },
   },
   mutations: {
     SAVE_RECORD(state, data) {
-      console.log(data)
       state.memories.unshift(data)
     },
     DELETE_RECORD(state, index) {
@@ -75,8 +74,8 @@ export default {
     QUERY_RECORDS(state, datas) {
       state.memories = datas
     },
-    FIND_RECORD(state, id) {
-      state.memoryId = id
+    FIND_RECORD(state, memory) {
+      state.memory = memory
     }
   },
   getters: {
