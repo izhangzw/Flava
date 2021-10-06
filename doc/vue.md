@@ -27,6 +27,10 @@ yarn add sass-loader@7.3.1 -D
 - [x] 1像素边框mixin
 - [ ] mock data
 - [x] 封装 fetch.js <-- axios
+- [ ] indexDB
+- [ ] how to make it beauty in store
+  - find record in router ?
+
 
 # Something Important
 数据代理  
